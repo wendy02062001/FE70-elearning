@@ -4,8 +4,10 @@ import { history } from "./utils/setting";
 function App() {
   return (
     <Router history={history}>
-      <Route exact path={"/home"} component={Home} />
-      <Route exact path={"/"} component={Home} />
+      <Switch>
+        <Route exact path={"/home"} component={Home} />
+        <Route exact path={"/"} component={Home} />
+      </Switch>
     </Router>
   );
 }
