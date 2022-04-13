@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
-import Home from "./pages/Home/Home";
+import Home from "./Pages/Home/Home";
 import { history } from "./utils/setting";
 function App() {
   return (
