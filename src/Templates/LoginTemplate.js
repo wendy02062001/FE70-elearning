@@ -9,12 +9,12 @@ export const LoginTemplate = (props) => {
           <div className="d-flex">
             <div className="img" style={{ height: "100vh" }}>
               <img
-                src="https://picsum.photos/200"
+                src="./img/dang-nhap.webp"
                 alt="..."
                 className="w-100 h-100"
               />
             </div>
-            <div className="d-flex justify-content-center align-items-center w-25 m-auto">
+            <div className="d-flex justify-content-center align-items-center w-100">
               <props.component {...propsRoute} />
             </div>
           </div>
