@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function DangKy() {
   const [infoDangKy, setinfoDangKy] = useState({
@@ -23,7 +24,6 @@ export default function DangKy() {
   let checkFormFill = (obj) => {
     for (var attr in obj) {
       if (obj[attr] === "") return true;
-      console.log(obj[attr]);
     }
     return false;
   };
@@ -172,19 +172,30 @@ export default function DangKy() {
                 color: "#fff",
               }}
             ></i>
-            <input
+            <select
               className="form-control"
-              type="text"
               name="maNhom"
-              placeholder="Mã nhóm"
               required
               onChange={handleChangeInput}
               style={{
                 backgroundColor: "#faeee7",
-                color: "#33272a",
                 outline: "none",
               }}
-            />
+            >
+              <option style={{ color: "#33272a" }} value="" disabled selected>
+                Mã nhóm
+              </option>
+              <option value="GP01">GP01</option>
+              <option value="GP02">GP02</option>
+              <option value="GP03">GP03</option>
+              <option value="GP04">GP04</option>
+              <option value="GP05">GP05</option>
+              <option value="GP06">GP06</option>
+              <option value="GP07">GP07</option>
+              <option value="GP08">GP08</option>
+              <option value="GP09">GP09</option>
+              <option value="GP10">GP10</option>
+            </select>
           </div>
         </div>
         <div className="col-6">
@@ -197,19 +208,24 @@ export default function DangKy() {
                 color: "#fff",
               }}
             ></i>
-            <input
+            <select
               className="form-control"
               type="text"
               name="maLoaiNguoiDung"
               placeholder="Mã loại người dùng"
-              required
               onChange={handleChangeInput}
               style={{
                 backgroundColor: "#faeee7",
                 color: "#33272a",
                 outline: "none",
               }}
-            />
+            >
+              <option value="" disabled selected>
+                Mã loại người dùng
+              </option>
+              <option value="HV">HV</option>
+              <option value="GV">GV</option>
+            </select>
           </div>
         </div>
       </div>
