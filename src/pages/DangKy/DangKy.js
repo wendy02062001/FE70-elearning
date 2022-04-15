@@ -6,7 +6,7 @@ export default function DangKy() {
     taiKhoan: "",
     matKhau: "",
     hoTen: "",
-    email: "m",
+    email: "",
     soDT: "",
     maNhom: "",
     maLoaiNguoiDung: "",
@@ -23,7 +23,7 @@ export default function DangKy() {
 
   let checkFormFill = (obj) => {
     for (var attr in obj) {
-      if (obj[attr] === "") return true;
+      if (obj[attr] === "" && attr !== "email" && attr !== "soDT") return true;
     }
     return false;
   };
@@ -125,7 +125,6 @@ export default function DangKy() {
               type="text"
               name="email"
               placeholder="Email"
-              required
               onChange={handleChangeInput}
               style={{
                 backgroundColor: "#faeee7",
@@ -150,7 +149,6 @@ export default function DangKy() {
               type="text"
               name="soDT"
               placeholder="Số điện thoại"
-              required
               onChange={handleChangeInput}
               style={{
                 backgroundColor: "#faeee7",
