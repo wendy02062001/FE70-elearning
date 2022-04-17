@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, NavLink } from "react-router-dom";
 import "../../style/form.css";
-import { createBrowserHistory } from "history";
+import { history } from "../../utils/setting";
 
 export default function DangKy() {
-  const history = createBrowserHistory();
   const [infoDangKy, setinfoDangKy] = useState({
     taiKhoan: "",
     matKhau: "",
@@ -164,10 +163,11 @@ export default function DangKy() {
             <select
               className="form-control form-input"
               name="maNhom"
+              defaultValue="0"
               required
               onChange={handleChangeInput}
             >
-              <option style={{ color: "#33272a" }} value="" disabled selected>
+              <option style={{ color: "#33272a" }} value="0" disabled>
                 Mã nhóm
               </option>
               <option value="GP01">GP01</option>
@@ -191,10 +191,11 @@ export default function DangKy() {
               className="form-control form-input"
               type="text"
               name="maLoaiNguoiDung"
+              defaultValue="0"
               placeholder="Mã loại người dùng"
               onChange={handleChangeInput}
             >
-              <option value="" disabled selected>
+              <option value="0" disabled>
                 Mã loại người dùng
               </option>
               <option value="HV">HV</option>
@@ -216,7 +217,10 @@ export default function DangKy() {
         </button>
       </div>
       <p className="text-center">
-        Bạn đã có tài khoản? <Link to="/dang-nhap">Đăng nhập</Link>
+        Bạn đã có tài khoản?{" "}
+        <Link to="/dang-nhap" onClick={() => history.push("/dang-nhap")}>
+          Đăng nhập
+        </Link>
       </p>
     </div>
   );

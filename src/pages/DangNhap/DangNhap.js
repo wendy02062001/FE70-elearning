@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { history } from "../../utils/setting";
 
 export default function DangNhap() {
   const [infoDangNhap, setInfoDangNhap] = useState({
@@ -70,7 +72,10 @@ export default function DangNhap() {
         </button>
       </div>
       <p className="text-center">
-        Bạn chưa có tài khoản? <a href="/dang-ky">Đăng ký ngay</a>
+        Bạn chưa có tài khoản?{" "}
+        <Link to="/dang-ky" onClick={() => history.push("/dang-ky")}>
+          Đăng ký
+        </Link>
       </p>
     </div>
   );
