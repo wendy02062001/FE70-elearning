@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import "../../style/form.css";
+import { createBrowserHistory } from "history";
 
 export default function DangKy() {
+  const history = createBrowserHistory();
   const [infoDangKy, setinfoDangKy] = useState({
     taiKhoan: "",
     matKhau: "",
@@ -12,173 +15,157 @@ export default function DangKy() {
     maLoaiNguoiDung: "",
   });
 
+  const [errorDangKy, setErrorDangKy] = useState({
+    taiKhoan: "",
+    matKhau: "",
+    hoTen: "",
+    email: "",
+    soDT: "",
+    maNhom: "",
+    maLoaiNguoiDung: "",
+  });
+
   const handleChangeInput = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
+
     setinfoDangKy((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+
+    let newError = { ...errorDangKy };
+
+    let errorMess = "";
+    if (value === "") {
+      errorMess = "Vui lòng không bỏ trống";
+    }
+
+    if (type === "email") {
+      let regexEmail =
+        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      if (!regexEmail.test(value)) {
+        errorMess = "Email không đúng định dạng";
+      }
+    }
+
+    if (name === "soDT") {
+      let regexSDT = /\(?([0-9]{4})\)?([ .-]?)([0-9]{3})\2([0-9]{3})/;
+      let regexSDT1 = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+      if (!regexSDT.test(value) && !regexSDT1.test(value)) {
+        errorMess = "Số điện thoại không đúng định dạng";
+      }
+    }
+
+    newError[name] = errorMess;
+
+    setErrorDangKy(newError);
+
     checkFormFill(infoDangKy);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push("/dang-nhap");
+  };
+
   let checkFormFill = (obj) => {
-    for (var attr in obj) {
-      if (obj[attr] === "" && attr !== "email" && attr !== "soDT") return true;
+    for (let attr in obj) {
+      if (obj[attr] === "") return true;
     }
+
+    for (let err in errorDangKy) {
+      if (errorDangKy[err] !== "") return true;
+    }
+
     return false;
   };
+
   return (
     <div className="form w-75">
       <h3 className="text-center">Đăng ký Thành viên</h3>
       <div className="row">
         <div className="col-12">
           <div className="form-group mt-3 d-flex">
-            <i
-              className="fas fa-user"
-              style={{
-                padding: "10px",
-                backgroundColor: "#ffc6c7",
-                color: "#fff",
-              }}
-            ></i>
+            <i className="fas fa-user"></i>
             <input
-              className="form-control"
+              className="form-control form-input form-input"
               type="text"
               name="hoTen"
               placeholder="Họ tên"
               required
               onChange={handleChangeInput}
-              style={{
-                backgroundColor: "#faeee7",
-                color: "#33272a",
-                outline: "none",
-              }}
             />
           </div>
+          <div className="text-danger">{errorDangKy.hoTen}</div>
         </div>
       </div>
       <div className="row">
         <div className="col-6">
           <div className="form-group mt-3 d-flex">
-            <i
-              className="fas fa-user"
-              style={{
-                padding: "10px",
-                backgroundColor: "#ffc6c7",
-                color: "#fff",
-              }}
-            ></i>
+            <i className="fas fa-user"></i>
             <input
-              className="form-control"
+              className="form-control form-input"
               type="text"
               name="taiKhoan"
               placeholder="Tài khoản"
               required
               onChange={handleChangeInput}
-              style={{
-                backgroundColor: "#faeee7",
-                color: "#33272a",
-                outline: "none",
-              }}
             />
           </div>
+          <div className="text-danger">{errorDangKy.taiKhoan}</div>
         </div>
         <div className="col-6">
           <div className="form-group mt-3 d-flex">
-            <i
-              className="fas fa-key"
-              style={{
-                padding: "10px",
-                backgroundColor: "#ffc6c7",
-                color: "#fff",
-              }}
-            ></i>
+            <i className="fas fa-key"></i>
             <input
-              className="form-control"
+              className="form-control form-input"
               type="password"
               name="matKhau"
               placeholder="Mật khẩu"
               required
               onChange={handleChangeInput}
-              style={{
-                backgroundColor: "#faeee7",
-                color: "#33272a",
-                outline: "none",
-              }}
             />
           </div>
+          <div className="text-danger">{errorDangKy.matKhau}</div>
         </div>
       </div>
       <div className="row">
         <div className="col-6">
           <div className="form-group mt-3 d-flex">
-            <i
-              className="fas fa-envelope"
-              style={{
-                padding: "10px",
-                backgroundColor: "#ffc6c7",
-                color: "#fff",
-              }}
-            ></i>
+            <i className="fas fa-envelope"></i>
             <input
-              className="form-control"
-              type="text"
+              className="form-control form-input"
+              type="email"
               name="email"
               placeholder="Email"
               onChange={handleChangeInput}
-              style={{
-                backgroundColor: "#faeee7",
-                color: "#33272a",
-                outline: "none",
-              }}
             />
           </div>
+          <div className="text-danger">{errorDangKy.email}</div>
         </div>
         <div className="col-6">
           <div className="form-group mt-3 d-flex">
-            <i
-              className="fas fa-phone"
-              style={{
-                padding: "10px",
-                backgroundColor: "#ffc6c7",
-                color: "#fff",
-              }}
-            ></i>
+            <i className="fas fa-phone"></i>
             <input
-              className="form-control"
+              className="form-control form-input"
               type="text"
               name="soDT"
-              placeholder="Số điện thoại"
+              placeholder="Số điện thoại: xxxx xxx xxx"
               onChange={handleChangeInput}
-              style={{
-                backgroundColor: "#faeee7",
-                color: "#33272a",
-                outline: "none",
-              }}
             />
           </div>
+          <div className="text-danger">{errorDangKy.soDT}</div>
         </div>
       </div>
       <div className="row">
         <div className="col-6">
           <div className="form-group mt-3 d-flex">
-            <i
-              className="fas fa-users"
-              style={{
-                padding: "10px",
-                backgroundColor: "#ffc6c7",
-                color: "#fff",
-              }}
-            ></i>
+            <i className="fas fa-users"></i>
             <select
-              className="form-control"
+              className="form-control form-input"
               name="maNhom"
               required
               onChange={handleChangeInput}
-              style={{
-                backgroundColor: "#faeee7",
-                outline: "none",
-              }}
             >
               <option style={{ color: "#33272a" }} value="" disabled selected>
                 Mã nhóm
@@ -195,28 +182,17 @@ export default function DangKy() {
               <option value="GP10">GP10</option>
             </select>
           </div>
+          <div className="text-danger">{errorDangKy.maNhom}</div>
         </div>
         <div className="col-6">
           <div className="form-group mt-3 d-flex">
-            <i
-              className="fas fa-user-cog"
-              style={{
-                padding: "10px",
-                backgroundColor: "#ffc6c7",
-                color: "#fff",
-              }}
-            ></i>
+            <i className="fas fa-user-cog"></i>
             <select
-              className="form-control"
+              className="form-control form-input"
               type="text"
               name="maLoaiNguoiDung"
               placeholder="Mã loại người dùng"
               onChange={handleChangeInput}
-              style={{
-                backgroundColor: "#faeee7",
-                color: "#33272a",
-                outline: "none",
-              }}
             >
               <option value="" disabled selected>
                 Mã loại người dùng
@@ -225,6 +201,7 @@ export default function DangKy() {
               <option value="GV">GV</option>
             </select>
           </div>
+          <div className="text-danger">{errorDangKy.maLoaiNguoiDung}</div>
         </div>
       </div>
 
@@ -233,13 +210,13 @@ export default function DangKy() {
           className="w-100 btn font-weight-bold rounded"
           type="submit"
           disabled={checkFormFill(infoDangKy)}
-          style={{ color: "#33272a", backgroundColor: "#ff8ba7" }}
+          onClick={handleSubmit}
         >
           Đăng ký
         </button>
       </div>
       <p className="text-center">
-        Bạn đã có tài khoản? <a href="/dang-nhap">Đăng nhập</a>
+        Bạn đã có tài khoản? <Link to="/dang-nhap">Đăng nhập</Link>
       </p>
     </div>
   );

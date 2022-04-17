@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 export const LoginTemplate = (props) => {
   return (
     <Route
+      exact
       path={props.path}
       render={(propsRoute) => {
         return (
