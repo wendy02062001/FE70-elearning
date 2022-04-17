@@ -1,11 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function HeaderHome() {
   return (
     <nav className='navbar navbar-expand-sm navbar-dark bg-white'>
-      <a className='navbar-brand' href='#'>
+      <NavLink className='navbar-brand' to='/'>
         <img src='./images/MIN-OP1.png' style={{ height: '50px' }} />
-      </a>
+      </NavLink>
       <button
         className='navbar-toggler d-lg-none'
         type='button'
@@ -22,16 +23,17 @@ export default function HeaderHome() {
           <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
             <li className='nav-item dropdown'>
               <a
-                className='nav-link dropdown-toggle'
-                href='#'
+                // className='nav-link dropdown-toggle'
                 id='dropdownId'
                 data-toggle='dropdown'
-                aria-haspopup='true'
-                aria-expanded='false'
+                // aria-haspopup='true'
+                // aria-expanded='false'
+                className='p-2 px-3'
+                style={{ color: '#594a4e', backgroundColor: '#ffc6c7' }}
               >
-                Danh mục khoá học
+                <i class='fas fa-list'></i> Danh mục khoá học
               </a>
-              <div className='dropdown-menu' aria-labelledby='dropdownId'>
+              <div className='dropdown-menu mt-2' aria-labelledby='dropdownId'>
                 <a className='dropdown-item' href='#'>
                   Action 1
                 </a>
