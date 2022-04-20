@@ -1,80 +1,62 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../../style/form.css";
 import { history } from "../../utils/setting";
+import { useForm } from "react-hook-form";
 
 export default function DangNhap() {
-  const [infoDangNhap, setInfoDangNhap] = useState({
-    taiKhoan: "",
-    matKhau: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: onchange,
   });
 
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setInfoDangNhap((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const onSubmit = () => {
+    history.push("/home");
   };
+
   return (
     <div className="form w-50">
       <h3 className="text-center">Đăng nhập</h3>
-      <div className="form-group mt-3 d-flex">
-        <i
-          className="fas fa-user"
-          style={{ padding: "10px", backgroundColor: "#ffc6c7", color: "#fff" }}
-        ></i>
-        <input
-          className="form-control"
-          type="text"
-          name="taiKhoan"
-          placeholder="Tài khoản"
-          required
-          onChange={handleChangeInput}
-          style={{
-            backgroundColor: "#faeee7",
-            color: "#33272a",
-            outline: "none",
-          }}
-        />
-      </div>
-      <div className="form-group mt-3 d-flex">
-        <i
-          className="fas fa-key"
-          style={{ padding: "10px", backgroundColor: "#ffc6c7", color: "#fff" }}
-        ></i>
-        <input
-          className="form-control"
-          type="password"
-          name="matKhau"
-          placeholder="Mật khẩu"
-          required
-          onChange={handleChangeInput}
-          style={{
-            backgroundColor: "#faeee7",
-            color: "#33272a",
-            outline: "none",
-          }}
-        />
-      </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-group mt-3 d-flex">
+          <i className="fas fa-user"></i>
+          <input
+            className="form-control form-input"
+            type="text"
+            placeholder="Tài khoản"
+            {...register("taiKhoan", { required: true })}
+          />
+        </div>
+        <div className="text-danger">
+          {errors.taiKhoan?.type === "required" &&
+            "Vui lòng không bỏ trống tài khoản"}
+        </div>
+        <div className="form-group mt-3 d-flex">
+          <i className="fas fa-key"></i>
+          <input
+            className="form-control form-input"
+            type="password"
+            placeholder="Mật khẩu"
+            {...register("matKhau", { required: true })}
+          />
+        </div>
+        <div className="text-danger">
+          {errors.matKhau?.type === "required" &&
+            "Vui lòng không bỏ trống mật khẩu"}
+        </div>
 
-      <div className="form-group mt-3">
-        <button
-          className="w-100 btn font-weight-bold rounded"
-          type="submit"
-          disabled={
-            infoDangNhap.taiKhoan === "" || infoDangNhap.matKhau === ""
-              ? true
-              : false
-          }
-          style={{ color: "#33272a", backgroundColor: "#ff8ba7" }}
-        >
-          Đăng nhập
-        </button>
-      </div>
+        <div className="form-group mt-3">
+          <button className="w-100 btn font-weight-bold rounded" type="submit">
+            Đăng nhập
+          </button>
+        </div>
+      </form>
       <p className="text-center">
         Bạn chưa có tài khoản?{" "}
         <Link to="/dang-ky" onClick={() => history.push("/dang-ky")}>
-          Đăng ký
+          Đăng ký ngay
         </Link>
       </p>
     </div>
