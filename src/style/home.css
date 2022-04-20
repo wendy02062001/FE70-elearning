@@ -5,6 +5,11 @@
   transition: all 0.5s;
 }
 
+button {
+  color: #33272a;
+  background-color: #ff8ba7;
+}
+
 .carousel-item::before {
   content: "";
   width: 100%;
