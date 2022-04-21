@@ -2,8 +2,8 @@ import { Route, Switch, Router } from "react-router-dom";
 import DangKy from "./pages/DangKy/DangKy";
 import DangNhap from "./pages/DangNhap/DangNhap";
 import Home from "./pages/Home/Home";
-import { HomeTemplate } from "./temp/HomeTemplate";
-import { LoginTemplate } from "./temp/LoginTemplate";
+import { HomeTemplate } from "./templates/HomeTemplate";
+import { LoginTemplate } from "./templates/LoginTemplate";
 import { history } from "./utils/setting";
 
 function App() {
