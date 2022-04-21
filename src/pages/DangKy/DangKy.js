@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "../../style/form.css";
 import { history } from "../../utils/setting";
 import { useForm } from "react-hook-form";
 

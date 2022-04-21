@@ -1,5 +1,4 @@
 import React from "react";
-import "../../style/home.css";
 export default function Home() {
   return (
     <div>
@@ -22,7 +21,7 @@ export default function Home() {
                   <h3>Trở thành lập trình viên chuyên nghiệp</h3>
                 </div>
                 <div className="carousel-button mt-4">
-                  <button className="btn btn-xemKhoaHoc mr-3 font-weight-bold">
+                  <button className="btn btn-xemKhoaHoc mr-3 p-2 font-weight-bold">
                     Xem khóa học
                   </button>
                   <button className="btn btn-dangKy font-weight-bold">
@@ -78,7 +77,9 @@ export default function Home() {
                   </span>
                 </p>
                 <div className="text-right ">
-                  <button className="btn font-weight-bold">Đăng ký</button>
+                  <button className="btn default-button font-weight-bold">
+                    Đăng ký
+                  </button>
                 </div>
               </div>
             </div>
@@ -103,7 +104,9 @@ export default function Home() {
                   </span>
                 </p>
                 <div className="text-right ">
-                  <button className="btn font-weight-bold">Đăng ký</button>
+                  <button className="btn default-button font-weight-bold">
+                    Đăng ký
+                  </button>
                 </div>
               </div>
             </div>
@@ -128,7 +131,9 @@ export default function Home() {
                   </span>
                 </p>
                 <div className="text-right ">
-                  <button className="btn font-weight-bold">Đăng ký</button>
+                  <button className="btn default-button font-weight-bold">
+                    Đăng ký
+                  </button>
                 </div>
               </div>
             </div>
@@ -153,7 +158,9 @@ export default function Home() {
                   </span>
                 </p>
                 <div className="text-right ">
-                  <button className="btn font-weight-bold">Đăng ký</button>
+                  <button className="btn default-button font-weight-bold">
+                    Đăng ký
+                  </button>
                 </div>
               </div>
             </div>
