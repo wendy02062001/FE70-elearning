@@ -11,7 +11,9 @@ export const HomeTemplate = (props) => {
         return (
           <>
             <HeaderHome />
-            <props.component {...propsRoute} />
+            <div className="pt-2 pb-5">
+              <props.component {...propsRoute} />
+            </div>
             <FooterHome />
           </>
         );
