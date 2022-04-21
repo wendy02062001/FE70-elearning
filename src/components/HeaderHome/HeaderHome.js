@@ -4,8 +4,11 @@ import { NavLink } from 'react-router-dom';
 export default function HeaderHome() {
   return (
     <nav className='navbar navbar-expand-sm navbar-dark bg-white'>
-      <NavLink className='navbar-brand' to='/'>
-        <img src='./images/MIN-OP1.png' style={{ height: '50px' }} />
+      <NavLink className='navbar-brand p-0' to='/'>
+        <img
+          src='./images/test2pink-removebg-preview.png'
+          style={{ maxHeight: '80px' }}
+        />
       </NavLink>
       <button
         className='navbar-toggler d-lg-none'
@@ -28,10 +31,10 @@ export default function HeaderHome() {
                 data-toggle='dropdown'
                 // aria-haspopup='true'
                 // aria-expanded='false'
-                className='p-2 px-3'
-                style={{ color: '#594a4e', backgroundColor: '#ffc6c7' }}
+                className='p-2 px-3 btn default-button'
+                style={{ color: '#33272a', backgroundColor: '#ff8ba7' }}
               >
-                <i class='fas fa-list'></i> Danh mục khoá học
+                <i className='fas fa-list'></i>&nbsp; Danh mục khoá học
               </a>
               <div className='dropdown-menu mt-2' aria-labelledby='dropdownId'>
                 <a className='dropdown-item' href='#'>
@@ -53,7 +56,10 @@ export default function HeaderHome() {
             />
           </form>
         </div>
-        <div className='col-4'>
+        <div
+          className='col-4 d-flex justify-content-end '
+          style={{ paddingRight: '30px' }}
+        >
           <button
             className='btn default-button my-2 mr-4 my-sm-0'
             type='button'

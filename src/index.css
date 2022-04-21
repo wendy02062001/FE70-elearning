@@ -12,7 +12,26 @@ code {
     monospace;
 }
 
+:root {
+  --primary: #ff8ba7;
+  --secondary: #ffc6c7;
+  --black: #33272a;
+  --white: #ffffff;
+  --background: #faeee7;
+  --paragraph: #594a4e;
+  --button-hover: #f06081;
+  --button-hover-color: #f7f2f2;
+}
+
 .default-button {
-  color: #33272a;
-  background-color: #ff8ba7;
+  color: var(--black);
+  background-color: var(--primary);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.default-button:hover {
+  background-color: var(--button-hover);
+  color: var(--button-hover-color);
+  box-shadow: 0 8px 15px -10px rgb(31 18 53 / 60%);
 }
