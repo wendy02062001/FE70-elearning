@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function FooterHome() {
   return (
@@ -8,73 +8,70 @@ export default function FooterHome() {
     >
       <div className='col-4'>
         <div className='mb-3'>
-          <img
-            src='./images/test2pink-removebg-preview.png'
-            style={{ maxWidth: '450px' }}
-          />
+          <img src='./images/mainbg.png' style={{ maxWidth: '450px' }} />
           <p className='mt-3'>
             <b style={{ fontSize: '17px' }}>Elearning Academy</b>
             &nbsp; là hệ thống đào tạo lập trình chuyên sâu theo dự án thực tế
           </p>
         </div>
-        <div className="mb-3">
+        <div className='mb-3'>
           <b>NHẬN TIN SỰ KIỆN - KHUYẾN MẠI</b>
           <p>
             Elearning sẽ gởi các khoá học trực tuyến & các chương trình
             CyberLive hoàn toàn MIỄN PHÍ và các chương trình KHUYẾN MẠI hấp dẫn
             đến các bạn
           </p>
-          <div className="d-flex">
+          <div className='d-flex'>
             <input
-              className="form-control w-75 "
-              placeholder="your.address@email.com"
+              className='form-control w-75 '
+              placeholder='your.address@email.com'
             />
             <button className='btn ml-2 default-button'>ĐĂNG KÍ</button>
           </div>
         </div>
-        <div className="mb-3">
+        <div className='mb-3'>
           <p>
-            <i className="fas fa-map-marker"></i> Cơ sở 1: 376 Võ Văn Tấn - Quận
+            <i className='fas fa-map-marker'></i> Cơ sở 1: 376 Võ Văn Tấn - Quận
             3
           </p>
           <p>
-            <i className="fas fa-map-marker"></i> Cơ sở 2: 459 Sư Văn Hạnh -
+            <i className='fas fa-map-marker'></i> Cơ sở 2: 459 Sư Văn Hạnh -
             Quận 10
           </p>
           <p>
-            <i className="fas fa-map-marker"></i> Cơ sở 3: 82 Ung Văn Khiêm -
+            <i className='fas fa-map-marker'></i> Cơ sở 3: 82 Ung Văn Khiêm -
             Bình Thạnh
           </p>
           <p>
-            <i className="fas fa-map-marker"></i> Cơ sở 4: Đà Nẵng - Quận Hải
+            <i className='fas fa-map-marker'></i> Cơ sở 4: Đà Nẵng - Quận Hải
             Châu
           </p>
           <p>
-            <i className="fas fa-phone"></i> 096.105.1014 - 0984.07.5835
+            <i className='fas fa-phone'></i> 096.105.1014 - 0984.07.5835
           </p>
         </div>
       </div>
-      <div className="col-4">
+      <div className='col-4'>
         <b>ĐĂNG KÍ TƯ VẤN</b>
         <form className='my-3'>
           <input
-            className="form-control w-100 mb-4"
-            placeholder="Họ và tên *"
+            className='form-control w-100 mb-4'
+            placeholder='Họ và tên *'
           />
           <input
-            className="form-control w-100 mb-4"
-            placeholder="Email liên hệ *"
+            className='form-control w-100 mb-4'
+            placeholder='Email liên hệ *'
           />
           <input
-            className="form-control w-100 mb-4"
-            placeholder="Điện thoại liên hệ *"
+            className='form-control w-100 mb-4'
+            placeholder='Điện thoại liên hệ *'
           />
           <b>Nhấn vào ô bên dưới</b>
           <div className='py-3'>
             <input type={'checkbox'} />
             <span> I'm not a robot</span>
           </div>
-          <button className="btn default-button">ĐĂNG KÍ TƯ VẤN</button>
+          <button className='btn default-button'>ĐĂNG KÍ TƯ VẤN</button>
         </form>
 
         <div className='row'>
@@ -100,10 +97,10 @@ export default function FooterHome() {
           trình trực tuyến
         </p> */}
       </div>
-      <div className="col-4">
+      <div className='col-4'>
         <iframe
-          data-testid="fb:page Facebook Social Plugin"
-          title="fb:page Facebook Social Plugin"
+          data-testid='fb:page Facebook Social Plugin'
+          title='fb:page Facebook Social Plugin'
           frameBorder={0}
           // allowTransparency='true'
           // allowFullScreen='true'
@@ -116,7 +113,7 @@ export default function FooterHome() {
             width: 430,
             height: 325,
           }}
-          className="text-center"
+          className='text-center'
         />
         <p className='pt-3'>
           <div className='row'>
