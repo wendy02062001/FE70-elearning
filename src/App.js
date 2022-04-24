@@ -9,6 +9,9 @@ import { history } from './utils/setting';
 import QuanLyNguoiDung from './pages/QuanLyNguoiDung/QuanLyNguoiDung';
 import ThemNguoiDung from './pages/QuanLyNguoiDung/ThemNguoiDung';
 import SuaNguoiDung from './pages/QuanLyNguoiDung/SuaNguoiDung';
+import QuanLyKhoaHoc from './pages/QuanLyKhoaHoc/QuanLyKhoaHoc';
+import ThemKhoaHoc from './pages/QuanLyKhoaHoc/ThemKhoaHoc';
+import SuaKhoaHoc from './pages/QuanLyKhoaHoc/SuaKhoaHoc';
 
 function App() {
   return (
@@ -28,6 +31,18 @@ function App() {
         <AdminTemplate
           path={'/admin/quanlynguoidung/sua-nguoi-dung'}
           component={SuaNguoiDung}
+        />
+        <AdminTemplate
+          path={'/admin/quanlykhoahoc/home'}
+          component={QuanLyKhoaHoc}
+        />
+        <AdminTemplate
+          path={'/admin/quanlykhoahoc/them-khoa-hoc'}
+          component={ThemKhoaHoc}
+        />
+        <AdminTemplate
+          path={'/admin/quanlykhoahoc/sua-khoa-hoc'}
+          component={SuaKhoaHoc}
         />
         <HomeTemplate path={'/'} component={Home} />
       </Switch>
