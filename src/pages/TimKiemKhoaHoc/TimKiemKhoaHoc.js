@@ -1,16 +1,27 @@
 import React from "react";
+import { history } from "../../utils/setting";
 import { Table } from "antd";
 import "antd/dist/antd.css";
 const columns = [
   {
     key: "khoaHoc",
     render: (record) => (
-      <div class="card">
-        <div class="d-flex">
+      <div className="card">
+        <div className="d-flex h-full">
           <img src={record.hinhAnh} alt="..." className="h-full" />
           <div className="p-4">
-            <h2 class="card-title">{record.tenKhoaHoc}</h2>
-            <p class="card-text">{record.mieuTa}</p>
+            <h2 className="card-title">{record.tenKhoaHoc}</h2>
+            <p className="card-text">{record.mieuTa}</p>
+            <div className="text-right">
+              <button
+                onClick={() => {
+                  history.push("/chiTietKhoaHoc");
+                }}
+                className="btn default-button"
+              >
+                Xem chi tiết
+              </button>
+            </div>
           </div>
         </div>
       </div>
