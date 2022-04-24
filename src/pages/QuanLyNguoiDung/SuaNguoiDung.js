@@ -4,7 +4,7 @@ import '../../style/form.css';
 import { history } from '../../utils/setting';
 import { useForm } from 'react-hook-form';
 
-export default function ThemNguoiDung() {
+export default function SuaNguoiDung() {
   const {
     register,
     handleSubmit,
@@ -18,7 +18,7 @@ export default function ThemNguoiDung() {
   };
   return (
     <>
-      <h2>Thêm người dùng</h2>
+      <h2>Sửa người dùng</h2>
       <div className='form w-75'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='row'>
@@ -152,8 +152,8 @@ export default function ThemNguoiDung() {
               </Link>
             </div>
             <div className='col-3 d-flex'>
-              <button className='w-100 btn default-button mr-2' type='submit'>
-                Thêm
+              <button className='w-100 btn default-button' type='button'>
+                Lưu
               </button>
             </div>
           </div>

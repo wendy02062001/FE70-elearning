@@ -48,7 +48,12 @@ export default function QuanLyNguoiDung() {
               >
                 <span className='small'>Ghi danh</span>
               </button>
-              <button className='btn btn-success mr-2'>
+              <button
+                className='btn btn-success mr-2'
+                onClick={() => {
+                  history.push('/admin/quanlynguoidung/sua-nguoi-dung');
+                }}
+              >
                 <span className='small'>Sửa</span>
               </button>
               <button className='btn btn-danger'>

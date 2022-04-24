@@ -8,6 +8,7 @@ import { AdminTemplate } from './templates/AdminTemplate';
 import { history } from './utils/setting';
 import QuanLyNguoiDung from './pages/QuanLyNguoiDung/QuanLyNguoiDung';
 import ThemNguoiDung from './pages/QuanLyNguoiDung/ThemNguoiDung';
+import SuaNguoiDung from './pages/QuanLyNguoiDung/SuaNguoiDung';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
         <AdminTemplate
           path={'/admin/quanlynguoidung/them-nguoi-dung'}
           component={ThemNguoiDung}
+        />
+        <AdminTemplate
+          path={'/admin/quanlynguoidung/sua-nguoi-dung'}
+          component={SuaNguoiDung}
         />
         <HomeTemplate path={'/'} component={Home} />
       </Switch>
