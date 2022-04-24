@@ -1,13 +1,13 @@
-* {
+body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -20,6 +20,11 @@ code {
   --paragraph: #594a4e;
   --button-hover: #f06081;
   --button-hover-color: #f7f2f2;
+}
+
+button {
+  color: var(--black);
+  background-color: var(--primary);
 }
 
 .default-button {
