@@ -18,10 +18,13 @@ export const AdminTemplate = (props) => {
                   to='/admin/quanlynguoidung/home'
                   onClick={() => history.push('/admin/quanlynguoidung/home')}
                 >
-                  <p>Quản lý khóa học</p>
+                  <p>Quản lý người dùng</p>
                 </Link>
-                <Link to='' onClick={() => history.push('')}>
-                  <p className=''>Quản lý người dùng</p>
+                <Link
+                  to='/admin/quanlykhoahoc/home'
+                  onClick={() => history.push('/admin/quanlykhoahoc/home')}
+                >
+                  <p className=''>Quản lý khóa học</p>
                 </Link>
               </div>
               <div className='col-8 p-0' style={{ maxWidth: '1400px' }}>

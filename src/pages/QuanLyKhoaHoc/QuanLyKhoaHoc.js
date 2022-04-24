@@ -1,17 +1,17 @@
 import React from 'react';
 import { history } from '../../utils/setting';
-import GhiDanhNguoiDung from './GhiDanhNguoiDung';
+import GhiDanhKhoaHoc from './GhiDanhKhoaHoc';
 
-export default function QuanLyNguoiDung() {
+export default function QuanLyKhoaHoc() {
   return (
     <div className=' p-0'>
       <button
         className='btn default-button mb-lg-3'
         onClick={() => {
-          history.push('/admin/quanlynguoidung/them-nguoi-dung');
+          history.push('/admin/quanlykhoahoc/them-khoa-hoc');
         }}
       >
-        Thêm người dùng
+        Thêm khoá học
       </button>
       <form className='my-2 my-lg-0'>
         <input
@@ -24,22 +24,22 @@ export default function QuanLyNguoiDung() {
         <thead>
           <tr>
             <th>STT</th>
-            <th>Tài khoản</th>
-            <th>Mật khẩu</th>
-            <th>Họ tên</th>
-            <th>Email</th>
-            <th>Số điện thoại</th>
+            <th>Mã khoá học</th>
+            <th>Tên khoá học</th>
+            <th>Hình ảnh</th>
+            <th>Lượt xem</th>
+            <th>Người tạo</th>
             <th>Thao tác</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td scope='row'>1</td>
-            <td>truongtankhai</td>
+            <td>LTFE</td>
             <td>*********</td>
-            <td>Trương Tấn Khải</td>
-            <td>truongtankhai@gmail.com</td>
-            <td>0687965465</td>
+            <td>*****</td>
+            <td>*******</td>
+            <td>Khải</td>
             <td className='d-flex'>
               <button
                 className='btn btn-primary mr-2'
@@ -51,7 +51,7 @@ export default function QuanLyNguoiDung() {
               <button
                 className='btn btn-success mr-2'
                 onClick={() => {
-                  history.push('/admin/quanlynguoidung/sua-nguoi-dung');
+                  history.push('/admin/quanlykhoahoc/sua-khoa-hoc');
                 }}
               >
                 <span className='small'>Sửa</span>
@@ -63,37 +63,53 @@ export default function QuanLyNguoiDung() {
           </tr>
           <tr>
             <td scope='row'>2</td>
-            <td>truongtankhai</td>
+            <td>LTFE</td>
             <td>*********</td>
-            <td>Trương Tấn Khải</td>
-            <td>truongtankhai@gmail.com</td>
-            <td>0687965465</td>
-            <td>
-              <button className='btn btn-primary mr-2'>
+            <td>*****</td>
+            <td>*******</td>
+            <td>Khải</td>
+            <td className='d-flex'>
+              <button
+                className='btn btn-primary mr-2'
+                data-toggle='modal'
+                data-target='#exampleModal'
+              >
                 <span className='small'>Ghi danh</span>
               </button>
-              <button className='btn btn-success mr-2'>
-                {' '}
+              <button
+                className='btn btn-success mr-2'
+                onClick={() => {
+                  history.push('/admin/quanlykhoahoc/sua-khoa-hoc');
+                }}
+              >
                 <span className='small'>Sửa</span>
               </button>
               <button className='btn btn-danger'>
-                {' '}
                 <span className='small'>Xoá</span>
               </button>
             </td>
           </tr>
           <tr>
             <td scope='row'>3</td>
-            <td>truongtankhai</td>
+            <td>LTFE</td>
             <td>*********</td>
-            <td>Trương Tấn Khải</td>
-            <td>truongtankhai@gmail.com</td>
-            <td>0687965465</td>
-            <td>
-              <button className='btn btn-primary mr-2'>
+            <td>*****</td>
+            <td>*******</td>
+            <td>Khải</td>
+            <td className='d-flex'>
+              <button
+                className='btn btn-primary mr-2'
+                data-toggle='modal'
+                data-target='#exampleModal'
+              >
                 <span className='small'>Ghi danh</span>
               </button>
-              <button className='btn btn-success mr-2'>
+              <button
+                className='btn btn-success mr-2'
+                onClick={() => {
+                  history.push('/admin/quanlykhoahoc/sua-khoa-hoc');
+                }}
+              >
                 <span className='small'>Sửa</span>
               </button>
               <button className='btn btn-danger'>
@@ -103,7 +119,7 @@ export default function QuanLyNguoiDung() {
           </tr>
         </tbody>
       </table>
-      <GhiDanhNguoiDung />
+      <GhiDanhKhoaHoc />
     </div>
   );
 }

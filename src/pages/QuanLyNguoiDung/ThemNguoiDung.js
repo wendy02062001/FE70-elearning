@@ -154,9 +154,6 @@ export default function ThemNguoiDung() {
               <button className="w-100 btn default-button mr-2" type="submit">
                 Thêm
               </button>
-              <button className="w-100 btn default-button" type="button">
-                Lưu
-              </button>
             </div>
           </div>
         </form>
