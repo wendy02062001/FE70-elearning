@@ -1,5 +1,71 @@
-import React from "react";
-export default function Home() {
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { layDanhSachKhoaHocAction } from "../../redux/actions/KhoaHoc/QuanLyKhoaHocAction";
+
+export default function Home(props) {
+  const { arrKhoaHoc } = useSelector(
+    (rootReducer) => rootReducer.quanLyKhoaHocReducer
+  );
+
+  // const firstEight = [];
+  // arrKhoaHoc.find(
+  //   (item) => (
+  //     item.TenKhoaHoc !== "" && item.HinhAnh !== null && firstEight.push(item),
+  //     firstEight.length > 8
+  //   )
+  // );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(layDanhSachKhoaHocAction());
+  }, []);
+
+  const renderKhoaHoc = () => {
+    return arrKhoaHoc.slice(0, 8).map((khoa, idx) => {
+      return (
+        <div className="col-3 my-3" key={idx}>
+          <div className="card">
+            <img
+              src={
+                khoa.HinhAnh ? khoa.HinhAnh : "https://picsum.photos/200/100"
+              }
+              alt="Image not found"
+              height={150}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null; // prevents looping
+                currentTarget.src = "https://picsum.photos/200/100";
+              }}
+            />
+            <div className="card-body">
+              <h5 className="text-uppercase">
+                {khoa.TenKhoaHoc !== "" ? khoa.TenKhoaHoc : "Default Name"}
+              </h5>
+              <p>
+                <span className="text-warning">
+                  <i className="fa fa-star" aria-hidden="true"></i>
+                  <i className="fa fa-star" aria-hidden="true"></i>
+                  <i className="fa fa-star" aria-hidden="true"></i>
+                  <i className="fa fa-star" aria-hidden="true"></i>
+                  <i className="fa fa-star-half" aria-hidden="true"></i>
+                </span>
+
+                <span>
+                  4,5 <span>({khoa.LuotXem ? khoa.LuotXem : 0})</span>
+                </span>
+              </p>
+              <div className="text-right ">
+                <button className="btn default-button font-weight-bold">
+                  Đăng ký
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  };
+
   return (
     <div>
       <div id="carouselExampleSlidesOnly" className="carousel slide">
@@ -57,115 +123,7 @@ export default function Home() {
         <h2 style={{ fontSize: "2rem" }} className="text-center">
           CÁC KHÓA HỌC MỚI NHẤT
         </h2>
-        <div className="row mt-3">
-          <div className="col-3">
-            <div className="card">
-              <img src="https://picsum.photos/200/100" />
-              <div className="card-body">
-                <h5>LẬP TRÌNH FRONTEND VỚI HTML CSS JAVASCRIPT</h5>
-                <p>
-                  <span className="text-warning">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half" aria-hidden="true"></i>
-                  </span>
-
-                  <span>
-                    4,5 <span>(1,593)</span>
-                  </span>
-                </p>
-                <div className="text-right ">
-                  <button className="btn default-button font-weight-bold">
-                    Đăng ký
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-3">
-            <div className="card">
-              <img src="https://picsum.photos/200/100" />
-              <div className="card-body">
-                <h5>LẬP TRÌNH FRONTEND VỚI HTML CSS JAVASCRIPT</h5>
-                <p>
-                  <span className="text-warning">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half" aria-hidden="true"></i>
-                  </span>
-
-                  <span>
-                    4,5 <span>(1,593)</span>
-                  </span>
-                </p>
-                <div className="text-right ">
-                  <button className="btn default-button font-weight-bold">
-                    Đăng ký
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-3">
-            <div className="card">
-              <img src="https://picsum.photos/200/100" />
-              <div className="card-body">
-                <h5>LẬP TRÌNH FRONTEND VỚI HTML CSS JAVASCRIPT</h5>
-                <p>
-                  <span className="text-warning">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half" aria-hidden="true"></i>
-                  </span>
-
-                  <span>
-                    4,5 <span>(1,593)</span>
-                  </span>
-                </p>
-                <div className="text-right ">
-                  <button className="btn default-button font-weight-bold">
-                    Đăng ký
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-3">
-            <div className="card">
-              <img src="https://picsum.photos/200/100" />
-              <div className="card-body">
-                <h5>LẬP TRÌNH FRONTEND VỚI HTML CSS JAVASCRIPT</h5>
-                <p>
-                  <span className="text-warning">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half" aria-hidden="true"></i>
-                  </span>
-
-                  <span>
-                    4,5 <span>(1,593)</span>
-                  </span>
-                </p>
-                <div className="text-right ">
-                  <button className="btn default-button font-weight-bold">
-                    Đăng ký
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="row mt-3">{renderKhoaHoc()}</div>
       </div>
     </div>
   );
