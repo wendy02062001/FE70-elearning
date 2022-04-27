@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { history } from "../../utils/setting";
 import { useDispatch, useSelector } from "react-redux";
 import { layDanhSachKhoaHocAction } from "../../redux/actions/KhoaHoc/QuanLyKhoaHocAction";
 
@@ -25,10 +26,16 @@ export default function Home(props) {
     return arrKhoaHoc.slice(0, 8).map((khoa, idx) => {
       return (
         <div className="col-3 my-3" key={idx}>
-          <div className="card">
+          <div
+            className="card"
+            onClick={() => {
+              window.scrollTo(0, 0);
+              history.push("/chiTietKhoaHoc");
+            }}
+          >
             <img
               src={
-                khoa.HinhAnh ? khoa.HinhAnh : "https://picsum.photos/200/100"
+                khoa.hinhAnh ? khoa.hinhAnh : "https://picsum.photos/200/100"
               }
               alt="Image not found"
               height={150}
@@ -39,7 +46,7 @@ export default function Home(props) {
             />
             <div className="card-body">
               <h5 className="text-uppercase">
-                {khoa.TenKhoaHoc !== "" ? khoa.TenKhoaHoc : "Default Name"}
+                {khoa.tenKhoaHoc !== "" ? khoa.tenKhoaHoc : "Default Name"}
               </h5>
               <p>
                 <span className="text-warning">
@@ -47,11 +54,20 @@ export default function Home(props) {
                   <i className="fa fa-star" aria-hidden="true"></i>
                   <i className="fa fa-star" aria-hidden="true"></i>
                   <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star-half" aria-hidden="true"></i>
+                  {idx % 3 === 0 ? (
+                    <span>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <span className="ml-2 text-dark">5</span>
+                    </span>
+                  ) : (
+                    <span>
+                      <i className="fa fa-star-half" aria-hidden="true"></i>
+                      <span className="ml-2 text-dark">4,5</span>
+                    </span>
+                  )}
                 </span>
-
-                <span>
-                  4,5 <span>({khoa.LuotXem ? khoa.LuotXem : 0})</span>
+                <span className="ml-1">
+                  ({khoa.luotXem ? khoa.luotXem : 0})
                 </span>
               </p>
               <div className="text-right ">

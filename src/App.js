@@ -11,10 +11,11 @@ import ThemNguoiDung from "./pages/QuanLyNguoiDung/ThemNguoiDung";
 import TimKiemKhoaHoc from "./pages/TimKiemKhoaHoc/TimKiemKhoaHoc";
 import ChiTietKhoaHoc from "./pages/ChiTietKhoaHoc/ChiTietKhoaHoc";
 import ThongTinCaNhan from "./pages/ThongTinCaNhan/ThongTinCaNhan";
-import SuaNguoiDung from './pages/QuanLyNguoiDung/SuaNguoiDung';
-import QuanLyKhoaHoc from './pages/QuanLyKhoaHoc/QuanLyKhoaHoc';
-import ThemKhoaHoc from './pages/QuanLyKhoaHoc/ThemKhoaHoc';
-import SuaKhoaHoc from './pages/QuanLyKhoaHoc/SuaKhoaHoc';
+import SuaNguoiDung from "./pages/QuanLyNguoiDung/SuaNguoiDung";
+import QuanLyKhoaHoc from "./pages/QuanLyKhoaHoc/QuanLyKhoaHoc";
+import ThemKhoaHoc from "./pages/QuanLyKhoaHoc/ThemKhoaHoc";
+import SuaKhoaHoc from "./pages/QuanLyKhoaHoc/SuaKhoaHoc";
+import DanhMucKhoaHoc from "./pages/DanhMucKhoaHoc/DanhMucKhoaHoc";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <HomeTemplate path={"/timKiemKhoaHoc"} component={TimKiemKhoaHoc} />
         <HomeTemplate path={"/chiTietKhoaHoc"} component={ChiTietKhoaHoc} />
         <HomeTemplate path={"/thongTinCaNhan"} component={ThongTinCaNhan} />
+        <HomeTemplate path={"/danhMucKhoaHoc"} component={DanhMucKhoaHoc} />
         <LoginTemplate path={"/dang-nhap"} component={DangNhap} />
         <LoginTemplate path={"/dang-ky"} component={DangKy} />
         <AdminTemplate
@@ -35,22 +37,22 @@ function App() {
           component={ThemNguoiDung}
         />
         <AdminTemplate
-          path={'/admin/quanlynguoidung/sua-nguoi-dung'}
+          path={"/admin/quanlynguoidung/sua-nguoi-dung"}
           component={SuaNguoiDung}
         />
         <AdminTemplate
-          path={'/admin/quanlykhoahoc/home'}
+          path={"/admin/quanlykhoahoc/home"}
           component={QuanLyKhoaHoc}
         />
         <AdminTemplate
-          path={'/admin/quanlykhoahoc/them-khoa-hoc'}
+          path={"/admin/quanlykhoahoc/them-khoa-hoc"}
           component={ThemKhoaHoc}
         />
         <AdminTemplate
-          path={'/admin/quanlykhoahoc/sua-khoa-hoc'}
+          path={"/admin/quanlykhoahoc/sua-khoa-hoc"}
           component={SuaKhoaHoc}
         />
-        <HomeTemplate path={'/'} component={Home} />
+        <HomeTemplate path={"/"} component={Home} />
       </Switch>
     </Router>
   );
