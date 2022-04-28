@@ -1,11 +1,12 @@
 import { DOMAIN, http } from "../../../utils/setting";
 
-export const layDanhSachKhoaHocAction = (dispatch) => {
+export const layDanhSachKhoaHocAction = (maNhom) => {
   return async (dispatch) => {
     try {
       // let maNhom = "GP01";
       let result = await http.get(
-        "QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP01"
+        "QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=",
+        maNhom
       );
       dispatch({
         type: "LAY_DANH_SACH_KHOA_HOC",
@@ -26,3 +27,4 @@ export const layDanhMucKhoaHocAction = (dispatch) => {
     } catch (err) {}
   };
 };
+

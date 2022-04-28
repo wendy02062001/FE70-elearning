@@ -21,11 +21,23 @@ function App() {
   return (
     <Router history={history}>
       <Switch>
-        <HomeTemplate path={"/home"} component={Home} />
-        <HomeTemplate path={"/timKiemKhoaHoc"} component={TimKiemKhoaHoc} />
-        <HomeTemplate path={"/chiTietKhoaHoc"} component={ChiTietKhoaHoc} />
-        <HomeTemplate path={"/thongTinCaNhan"} component={ThongTinCaNhan} />
-        <HomeTemplate path={"/danhMucKhoaHoc"} component={DanhMucKhoaHoc} />
+        <HomeTemplate exact path={"/home"} component={Home} />
+        <HomeTemplate
+          exact
+          path={"/timKiemKhoaHoc"}
+          component={TimKiemKhoaHoc}
+        />
+        <HomeTemplate
+          exact
+          path={"/chiTietKhoaHoc"}
+          component={ChiTietKhoaHoc}
+        />
+        <HomeTemplate
+          exact
+          path={"/thongTinCaNhan"}
+          component={ThongTinCaNhan}
+        />
+        <HomeTemplate path={`/danhMucKhoaHoc`} component={DanhMucKhoaHoc} />
         <LoginTemplate path={"/dang-nhap"} component={DangNhap} />
         <LoginTemplate path={"/dang-ky"} component={DangKy} />
         <AdminTemplate

@@ -19,7 +19,7 @@ export default function Home(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(layDanhSachKhoaHocAction());
+    dispatch(layDanhSachKhoaHocAction("GP01"));
   }, []);
 
   const renderKhoaHoc = () => {

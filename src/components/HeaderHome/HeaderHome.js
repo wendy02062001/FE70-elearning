@@ -48,10 +48,12 @@ export default function HeaderHome() {
               </a>
               <div className="dropdown-menu mt-2" aria-labelledby="dropdownId">
                 {arrDanhMuc.map((danhmuc, idx) => {
+                  let dmDir =
+                    "/danhMucKhoaHoc/?MaDanhMuc=" + `${danhmuc.maDanhMuc}`;
                   return (
-                    <a className="dropdown-item" href="#" key={idx}>
+                    <NavLink className="dropdown-item" key={idx} to={dmDir}>
                       {danhmuc.tenDanhMuc}
-                    </a>
+                    </NavLink>
                   );
                 })}
               </div>
