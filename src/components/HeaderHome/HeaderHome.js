@@ -18,7 +18,7 @@ export default function HeaderHome() {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-white">
       <NavLink className="navbar-brand p-0" to="/">
-        <img src="./images/mainbg.png" style={{ maxHeight: "80px" }} />
+        <img src="./images/mainbg.png" alt="..." style={{ maxHeight: "80px" }} />
       </NavLink>
       <button
         className="navbar-toggler d-lg-none"
@@ -49,9 +49,14 @@ export default function HeaderHome() {
               <div className="dropdown-menu mt-2" aria-labelledby="dropdownId">
                 {arrDanhMuc.map((danhmuc, idx) => {
                   let dmDir =
-                    "/danhMucKhoaHoc/?MaDanhMuc=" + `${danhmuc.maDanhMuc}`;
+                    "/danhMucKhoaHoc?MaDanhMuc=" + `${danhmuc.maDanhMuc}`;
                   return (
-                    <NavLink className="dropdown-item" key={idx} to={dmDir}>
+                    <NavLink
+                      className="dropdown-item"
+                      activeClassName="current"
+                      key={idx}
+                      to={dmDir}
+                    >
                       {danhmuc.tenDanhMuc}
                     </NavLink>
                   );

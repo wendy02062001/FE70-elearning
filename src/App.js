@@ -1,4 +1,4 @@
-import { Route, Switch, Router } from "react-router-dom";
+import { Switch, Router } from "react-router-dom";
 import DangKy from "./pages/DangKy/DangKy";
 import DangNhap from "./pages/DangNhap/DangNhap";
 import Home from "./pages/Home/Home";
@@ -37,7 +37,7 @@ function App() {
           path={"/thongTinCaNhan"}
           component={ThongTinCaNhan}
         />
-        <HomeTemplate path={`/danhMucKhoaHoc`} component={DanhMucKhoaHoc} />
+        <HomeTemplate path={"/danhMucKhoaHoc"} component={DanhMucKhoaHoc} />
         <LoginTemplate path={"/dang-nhap"} component={DangNhap} />
         <LoginTemplate path={"/dang-ky"} component={DangKy} />
         <AdminTemplate

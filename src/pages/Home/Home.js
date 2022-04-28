@@ -37,7 +37,7 @@ export default function Home(props) {
               src={
                 khoa.hinhAnh ? khoa.hinhAnh : "https://picsum.photos/200/100"
               }
-              alt="Image not found"
+              alt="Not found"
               height={150}
               onError={({ currentTarget }) => {
                 currentTarget.onerror = null; // prevents looping

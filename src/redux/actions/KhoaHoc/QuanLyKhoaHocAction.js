@@ -1,9 +1,8 @@
-import { DOMAIN, http } from "../../../utils/setting";
+import { http } from "../../../utils/setting";
 
 export const layDanhSachKhoaHocAction = (maNhom) => {
   return async (dispatch) => {
     try {
-      // let maNhom = "GP01";
       let result = await http.get(
         "QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=",
         maNhom
@@ -28,3 +27,16 @@ export const layDanhMucKhoaHocAction = (dispatch) => {
   };
 };
 
+export const layKhoaHocTheoDMAction = (maDM) => {
+  return async (dispatch) => {
+    try {
+      let result = await http.get(
+        "QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=" + maDM + "&MaNhom=GP01"
+      );
+      dispatch({
+        type: "LAY_KHOA_HOC_THEO_DM",
+        arrKhoaHoc: result.data,
+      });
+    } catch (err) {}
+  };
+};
