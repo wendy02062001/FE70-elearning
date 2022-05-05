@@ -23,7 +23,6 @@ function App() {
       <Switch>
         <HomeTemplate exact path={"/home"} component={Home} />
         <HomeTemplate
-          exact
           path={"/timKiemKhoaHoc"}
           component={TimKiemKhoaHoc}
         />

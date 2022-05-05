@@ -13,7 +13,7 @@ export const LoginTemplate = (props) => {
             <div className="d-flex">
               <div className="img" style={{ height: "80vh" }}>
                 <img
-                  src="./img/dang-nhap.webp"
+                  src="./images/dang-nhap.webp"
                   alt="..."
                   className="w-100 h-100"
                 />

@@ -18,7 +18,11 @@ export default function HeaderHome() {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-white">
       <NavLink className="navbar-brand p-0" to="/">
-        <img src="./images/mainbg.png" alt="..." style={{ maxHeight: "80px" }} />
+        <img
+          src="./images/mainbg.png"
+          alt="..."
+          style={{ maxHeight: "80px" }}
+        />
       </NavLink>
       <button
         className="navbar-toggler d-lg-none"
@@ -66,11 +70,12 @@ export default function HeaderHome() {
           </ul>
         </div>
         <div className="col-4">
-          <form className="my-2 my-lg-0">
+          <form className="my-2 my-lg-0" action="/timKiemKhoaHoc" method="GET">
             <input
               className="form-control mr-sm-2"
               type="text"
               placeholder="Tìm khoá học"
+              name="kwKhoaHoc"
             />
           </form>
         </div>

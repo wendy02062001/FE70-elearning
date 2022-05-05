@@ -39,6 +39,7 @@ export default function Home(props) {
               }
               alt="Not found"
               height={150}
+              style={{ objectFit: "cover" }}
               onError={({ currentTarget }) => {
                 currentTarget.onerror = null; // prevents looping
                 currentTarget.src = "https://picsum.photos/200/100";
@@ -88,7 +89,7 @@ export default function Home(props) {
         <div className="carousel-inner">
           <div className="carousel-item active" style={{ height: "100vh" }}>
             <video width="100%" autoPlay muted loop>
-              <source src="./img/CyberSoft.mp4" type="video/mp4" />
+              <source src="./images/CyberSoft.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="carousel-caption">

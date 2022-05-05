@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { history } from "../../utils/setting";
 import { Table } from "antd";
 import "antd/dist/antd.css";
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { layKhoaHocTimKiemAction } from "../../redux/actions/KhoaHoc/QuanLyKhoaHocAction";
+
 const columns = [
   {
     key: "khoaHoc",
     render: (record) => (
       <div className="card">
-        <div className="d-flex h-full">
-          <img src={record.hinhAnh} alt="..." className="h-full" />
-          <div className="p-4">
+        <div className="d-flex w-full">
+          <img
+            src={
+              record.hinhAnh ? record.hinhAnh : "./images/coursedefault.webp"
+            }
+            alt="Not found"
+            width={250}
+            height={200}
+            style={{objectFit:"cover"}}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = "./images/coursedefault.webp";
+            }}
+          />
+          <div className="p-4 w-75">
             <h2 className="card-title">{record.tenKhoaHoc}</h2>
-            <p className="card-text">{record.mieuTa}</p>
-            <div className="text-right">
+            <p className="card-text khoaHoc__mota">{record.moTa}</p>
+            <div className="text-right w-full">
               <button
                 onClick={() => {
                   history.push("/chiTietKhoaHoc");
@@ -29,96 +45,42 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: "1",
-    tenKhoaHoc: "Lập trình FrontEnd",
-    hinhAnh: "https://i.pravatar.cc/200?img=26",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
-  {
-    key: "2",
-    tenKhoaHoc: "Lập trình FrontEnd với ReactJS",
-    hinhAnh: "https://i.pravatar.cc/200?img=53",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
-  {
-    key: "3",
-    tenKhoaHoc: "Lập trình FrontEnd với Angular",
-    hinhAnh: "https://i.pravatar.cc/200?img=12",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
+export default function TimKiemKhoaHoc(props) {
+  const search = useLocation().search;
+  const kw = new URLSearchParams(search).get("kwKhoaHoc");
 
-  {
-    key: "4",
-    tenKhoaHoc: "Lập trình FrontEnd với Angular",
-    hinhAnh: "https://i.pravatar.cc/200?img=17",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
+  const { arrKHTimKiem } = useSelector(
+    (rootReducer) => rootReducer.quanLyKhoaHocReducer
+  );
 
-  {
-    key: "5",
-    tenKhoaHoc: "Lập trình FrontEnd với Angular",
-    hinhAnh: "https://i.pravatar.cc/200?img=22",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
+  const dispatch = useDispatch();
 
-  {
-    key: "6",
-    tenKhoaHoc: "Lập trình FrontEnd với Angular",
-    hinhAnh: "https://i.pravatar.cc/200?img=32",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
+  useEffect(() => {
+    dispatch(layKhoaHocTimKiemAction(kw));
+  }, []);
 
-  {
-    key: "7",
-    tenKhoaHoc: "Lập trình FrontEnd với Angular",
-    hinhAnh: "https://i.pravatar.cc/200?img=10",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
+  const numbKH = arrKHTimKiem.length;
 
-  {
-    key: "8",
-    tenKhoaHoc: "Lập trình FrontEnd với Angular",
-    hinhAnh: "https://i.pravatar.cc/200?img=9",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
-
-  {
-    key: "9",
-    tenKhoaHoc: "Lập trình FrontEnd với Angular",
-    hinhAnh: "https://i.pravatar.cc/200?img=25",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
-
-  {
-    key: "10",
-    tenKhoaHoc: "Lập trình FrontEnd với Angular",
-    hinhAnh: "https://i.pravatar.cc/200?img=27",
-    mieuTa:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  },
-];
-export default function TimKiemKhoaHoc() {
   return (
     <div className="container">
-      <h3>Tìm thấy 619 khóa học FrontEnd</h3>
+      <h3>
+        Tìm thấy {numbKH} khóa học {kw}
+      </h3>
       <hr style={{ border: "solid #33272a 1px" }} />
-      <Table
-        columns={columns}
-        pagination={{ pageSize: 4, position: ["bottomCenter"] }}
-        dataSource={data}
-      />
-      ;
+      {numbKH > 0 ? (
+        <Table
+          columns={columns}
+          pagination={{ pageSize: 4, position: ["bottomCenter"] }}
+          dataSource={arrKHTimKiem}
+        />
+      ) : (
+        <div className="text-center">
+          <img height={350} src="./images/notfound.webp" />
+          <h5 className="text-danger mt-2">
+            Rất tiếc, chúng tôi không tìm thấy khóa học bạn cần!
+          </h5>
+        </div>
+      )}
     </div>
   );
 }

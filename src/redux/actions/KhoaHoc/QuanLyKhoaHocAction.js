@@ -40,3 +40,19 @@ export const layKhoaHocTheoDMAction = (maDM) => {
     } catch (err) {}
   };
 };
+
+export const layKhoaHocTimKiemAction = (keyword) => {
+  return async (dispatch) => {
+    try {
+      let result = await http.get(
+        "QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=" +
+          keyword +
+          "&MaNhom=GP01"
+      );
+      dispatch({
+        type: "LAY_KHOA_HOC_TIM_KIEM",
+        arrKhoaHoc: result.data,
+      });
+    } catch (err) {}
+  };
+};
