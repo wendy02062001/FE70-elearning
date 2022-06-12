@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { history } from "../../utils/setting";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { dangKyAction } from "../../redux/actions/NguoiDung/QuanLyNguoiDungAction";
+import { Axios } from "axios";
 
 export default function DangKy() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -11,8 +15,8 @@ export default function DangKy() {
     mode: onchange,
   });
 
-  const onSubmit = () => {
-    history.push("/dang-nhap");
+  const onSubmit = (values) => {
+    dispatch(dangKyAction(values));
   };
 
   return (
@@ -51,6 +55,7 @@ export default function DangKy() {
                 className="form-control form-input"
                 type="text"
                 placeholder="Tài khoản"
+                name="taiKhoan"
                 {...register("taiKhoan", { required: true })}
               />
             </div>
@@ -66,6 +71,7 @@ export default function DangKy() {
                 className="form-control form-input"
                 type="password"
                 placeholder="Mật khẩu"
+                name="matKhau"
                 {...register("matKhau", { required: true })}
               />
             </div>
@@ -83,6 +89,7 @@ export default function DangKy() {
                 className="form-control form-input"
                 type="email"
                 placeholder="Email"
+                name="email"
                 {...register("email", {
                   required: true,
                   pattern: {
@@ -105,6 +112,7 @@ export default function DangKy() {
                 className="form-control form-input"
                 type="text"
                 placeholder="Số điện thoại: xxxx xxx xxx"
+                name="soDT"
                 {...register("soDT", {
                   required: true,
                   pattern: {
@@ -162,7 +170,6 @@ export default function DangKy() {
                   Mã loại người dùng
                 </option>
                 <option value="HV">HV</option>
-                <option value="GV">GV</option>
               </select>
             </div>
             <div className="text-danger">

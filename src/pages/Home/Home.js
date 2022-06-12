@@ -24,13 +24,14 @@ export default function Home(props) {
 
   const renderKhoaHoc = () => {
     return arrKhoaHoc.slice(0, 8).map((khoa, idx) => {
+      let ctdir = "/chiTietKhoaHoc?MaKhoaHoc=" + `${khoa.maKhoaHoc}`;
       return (
         <div className="col-3 my-3" key={idx}>
           <div
             className="card"
             onClick={() => {
               window.scrollTo(0, 0);
-              history.push("/chiTietKhoaHoc");
+              history.push(ctdir);
             }}
           >
             <img

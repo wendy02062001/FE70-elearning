@@ -53,6 +53,25 @@ export const layKhoaHocTimKiemAction = (keyword) => {
         type: "LAY_KHOA_HOC_TIM_KIEM",
         arrKhoaHoc: result.data,
       });
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const layThongTinKhoaHocAction = (maKhoaHoc) => {
+  return async (dispatch) => {
+    try {
+      let result = await http.get(
+        "QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=" + maKhoaHoc
+      );
+      dispatch({
+        type: "LAY_THONG_TIN_KHOA_HOC",
+        detailKH: result.data,
+      });
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
   };
 };

@@ -6,6 +6,7 @@ const stateDefault = {
     arrKH: [],
   },
   arrKHTimKiem: [],
+  detailKH: {},
 };
 
 export const quanLyKhoaHocReducer = (state = stateDefault, action) => {
@@ -29,6 +30,11 @@ export const quanLyKhoaHocReducer = (state = stateDefault, action) => {
 
     case "LAY_KHOA_HOC_TIM_KIEM": {
       state.arrKHTimKiem = action.arrKhoaHoc;
+      return { ...state };
+    }
+
+    case "LAY_THONG_TIN_KHOA_HOC": {
+      state.detailKH = action.detailKH;
       return { ...state };
     }
 

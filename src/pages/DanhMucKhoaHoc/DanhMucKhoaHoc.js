@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { layKhoaHocTheoDMAction } from "../../redux/actions/KhoaHoc/QuanLyKhoaHocAction";
+import { useHistory } from "react-router-dom";
+import { history } from "../../utils/setting";
 
 export default function DanhMucKhoaHoc(props) {
   const search = useLocation().search;
@@ -19,9 +21,16 @@ export default function DanhMucKhoaHoc(props) {
 
   const renderKH = () => {
     return arrKHtheoDM.arrKH.map((khoa, idx) => {
+      let ctdir = "/chiTietKhoaHoc?MaKhoaHoc=" + `${khoa.maKhoaHoc}`;
       return (
         <div className="col-3" key={idx}>
-          <div className="card">
+          <div
+            className="card"
+            onClick={() => {
+              window.scrollTo(0, 0);
+              history.push(ctdir);
+            }}
+          >
             <img
               className="card-img-top"
               src="https://picsum.photos/200/100"

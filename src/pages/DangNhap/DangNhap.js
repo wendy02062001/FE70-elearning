@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { history } from "../../utils/setting";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { DangNhapAction } from "../../redux/actions/NguoiDung/QuanLyNguoiDungAction";
 
 export default function DangNhap() {
   const {
@@ -11,8 +14,20 @@ export default function DangNhap() {
     mode: onchange,
   });
 
-  const onSubmit = () => {
-    history.push("/home");
+  const dispatch = useDispatch();
+  const [userInput, setUserInput] = useState({ taiKhoan: "", matKhau: "" });
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUserInput({
+      ...userInput,
+      [name]: value,
+    });
+  };
+
+  const onSubmit = (values) => {
+    dispatch(DangNhapAction(values));
   };
 
   return (
@@ -25,7 +40,9 @@ export default function DangNhap() {
             className="form-control form-input"
             type="text"
             placeholder="Tài khoản"
+            name="taiKhoan"
             {...register("taiKhoan", { required: true })}
+            onChange={handleChange}
           />
         </div>
         <div className="text-danger">
@@ -38,7 +55,9 @@ export default function DangNhap() {
             className="form-control form-input"
             type="password"
             placeholder="Mật khẩu"
+            name="matKhau"
             {...register("matKhau", { required: true })}
+            onChange={handleChange}
           />
         </div>
         <div className="text-danger">

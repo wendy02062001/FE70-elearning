@@ -22,15 +22,8 @@ function App() {
     <Router history={history}>
       <Switch>
         <HomeTemplate exact path={"/home"} component={Home} />
-        <HomeTemplate
-          path={"/timKiemKhoaHoc"}
-          component={TimKiemKhoaHoc}
-        />
-        <HomeTemplate
-          exact
-          path={"/chiTietKhoaHoc"}
-          component={ChiTietKhoaHoc}
-        />
+        <HomeTemplate path={"/timKiemKhoaHoc"} component={TimKiemKhoaHoc} />
+        <HomeTemplate path={"/chiTietKhoaHoc"} component={ChiTietKhoaHoc} />
         <HomeTemplate
           exact
           path={"/thongTinCaNhan"}
