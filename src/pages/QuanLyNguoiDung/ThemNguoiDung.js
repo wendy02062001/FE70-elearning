@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../../style/form.css';
 import { history } from '../../utils/setting';
 import { useForm } from 'react-hook-form';
+import { addNguoiDung } from '../../redux/actions/quanLyNguoiDungActions';
+import { useDispatch } from 'react-redux';
 
 export default function ThemNguoiDung() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -13,14 +15,18 @@ export default function ThemNguoiDung() {
     mode: onchange,
   });
 
-  const onSubmit = () => {
-    history.push('/dang-nhap');
-  };
   return (
     <>
       <h2>Thêm người dùng</h2>
       <div className='form w-75'>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          onSubmit={handleSubmit((data) => {
+            console.log(data);
+            const action = addNguoiDung(data);
+            dispatch(action);
+            history.push('/admin/quanlynguoidung/home');
+          })}
+        >
           <div className='row'>
             <div className='col-6'>
               <div className='form-group mt-3 d-flex'>
@@ -31,10 +37,6 @@ export default function ThemNguoiDung() {
                   placeholder='Họ tên'
                   {...register('hoTen', {
                     required: true,
-                    pattern: {
-                      value: /^[A-Za-z]+$/i,
-                      message: 'Họ tên sai định dạng',
-                    },
                   })}
                 />
               </div>
@@ -147,9 +149,12 @@ export default function ThemNguoiDung() {
 
           <div className='row'>
             <div className='col-9'>
-              <Link onClick={() => history.goBack()}>
+              <button
+                className='btn btn-outline'
+                onClick={() => history.goBack()}
+              >
                 <i className='fas fa-angle-double-left'></i> Trở lại
-              </Link>
+              </button>
             </div>
             <div className='col-3 d-flex'>
               <button className='w-100 btn default-button mr-2' type='submit'>

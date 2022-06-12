@@ -13,8 +13,9 @@ export default function ThemKhoaHoc() {
     mode: onchange,
   });
 
-  const onSubmit = () => {
-    history.push('/dang-nhap');
+  const onSubmit = (data) => {
+    console.log(data);
+    // history.push('/dang-nhap');
   };
   return (
     <>
@@ -24,7 +25,7 @@ export default function ThemKhoaHoc() {
           <div className='row'>
             <div className='col-6'>
               <div className='form-group mt-3 d-flex'>
-                <i class='fas fa-address-book'></i>
+                <i className='fas fa-address-book'></i>
                 <input
                   className='form-control form-input'
                   type='text'
@@ -39,10 +40,10 @@ export default function ThemKhoaHoc() {
             </div>
             <div className='col-6'>
               <div className='form-group mt-3 d-flex'>
-                <i class='fas fa-star'></i>
+                <i className='fas fa-star'></i>
                 <input
                   className='form-control form-input'
-                  type='email'
+                  type='input'
                   placeholder='Đánh giá'
                   {...register('danhGia', { required: true })}
                 />
@@ -63,10 +64,6 @@ export default function ThemKhoaHoc() {
                   placeholder='Tên khoá học'
                   {...register('tenKhoaHoc', {
                     required: true,
-                    pattern: {
-                      value: /^[A-Za-z]+$/i,
-                      message: 'Họ tên sai định dạng',
-                    },
                   })}
                 />
               </div>
@@ -78,7 +75,7 @@ export default function ThemKhoaHoc() {
             </div>
             <div className='col-6'>
               <div className='form-group mt-3 d-flex'>
-                <i class='fas fa-eye'></i>
+                <i className='fas fa-eye'></i>
                 <input
                   className='form-control form-input'
                   type='text'
@@ -95,7 +92,7 @@ export default function ThemKhoaHoc() {
           <div className='row'>
             <div className='col-6'>
               <div className='form-group mt-3 d-flex'>
-                <i class='far fa-list-alt'></i>
+                <i className='far fa-list-alt'></i>
                 <select
                   className='form-control form-input'
                   type='text'
@@ -139,7 +136,7 @@ export default function ThemKhoaHoc() {
           <div className='row'>
             <div className='col-6'>
               <div className='form-group mt-3 d-flex'>
-                <i class='fas fa-calendar'></i>
+                <i className='fas fa-calendar'></i>
                 <input
                   className='form-control form-input'
                   type='date'
@@ -153,7 +150,7 @@ export default function ThemKhoaHoc() {
             </div>
             <div className='col-6'>
               <div className='form-group mt-3 d-flex'>
-                <i class='fas fa-image'></i>
+                <i className='fas fa-image'></i>
                 <input
                   className='form-control form-input'
                   type='file'
@@ -171,7 +168,7 @@ export default function ThemKhoaHoc() {
             <div className='col'>
               <div className='form-group mt-3 d-flex'>
                 <textarea
-                  class='form-control form-input'
+                  className='form-control form-input'
                   {...register('moTa', { required: true })}
                   rows='5'
                   placeholder='Mô tả'
@@ -184,9 +181,12 @@ export default function ThemKhoaHoc() {
           </div>
           <div className='row'>
             <div className='col-9'>
-              <Link onClick={() => history.goBack()}>
+              <button
+                className='btn btn-default'
+                onClick={() => history.goBack()}
+              >
                 <i className='fas fa-angle-double-left'></i> Trở lại
-              </Link>
+              </button>
             </div>
             <div className='col-3 d-flex'>
               <button className='w-100 btn default-button mr-2' type='submit'>

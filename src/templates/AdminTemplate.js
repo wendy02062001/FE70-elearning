@@ -13,7 +13,7 @@ export const AdminTemplate = (props) => {
           <>
             <HeaderAdmin />
             <div className='row py-5'>
-              <div className='col-3 pl-5'>
+              <div className='col-2 pl-5'>
                 <Link
                   to='/admin/quanlynguoidung/home'
                   onClick={() => history.push('/admin/quanlynguoidung/home')}
@@ -27,7 +27,7 @@ export const AdminTemplate = (props) => {
                   <p className=''>Quản lý khóa học</p>
                 </Link>
               </div>
-              <div className='col-8 p-0' style={{ maxWidth: '1400px' }}>
+              <div className='col-10 p-0' style={{ maxWidth: '1400px' }}>
                 <props.component {...propsRoute} />
               </div>
             </div>
