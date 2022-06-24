@@ -1,8 +1,6 @@
-import '../../style/form.css';
 import { history } from '../../utils/setting';
 import { useForm } from 'react-hook-form';
 import React, { useEffect, useState } from 'react';
-import '../../style/form.css';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { updateKhoaHoc } from '../../redux/actions/quanLyKhoaHocAction';

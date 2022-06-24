@@ -1,13 +1,18 @@
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
+* {
+  transition: all 0.5s;
+  font-size: 16px;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -22,6 +27,12 @@ code {
   --button-hover-color: #f7f2f2;
 }
 
+button {
+  color: var(--black);
+  background-color: var(--primary);
+  border: none;
+}
+
 .default-button {
   color: var(--black);
   background-color: var(--primary);
@@ -29,8 +40,170 @@ code {
   font-weight: bold;
 }
 
-.default-button:hover {
+.btn-xemKhoaHoc {
+  color: var(--black);
+  background-color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.btn-dangKy {
+  font-size: 1.5rem;
+  background: none;
+  border: var(--primary) solid 3px;
+  color: var(--white);
+}
+
+button:hover {
   background-color: var(--button-hover);
   color: var(--button-hover-color);
   box-shadow: 0 8px 15px -10px rgb(31 18 53 / 60%);
+}
+
+.carousel-item::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel-caption {
+  text-align: center;
+  bottom: 50%;
+  transform: translateY(50%);
+  padding-top: 80px;
+  z-index: 1;
+}
+
+.carousel-h1 {
+  font-size: 4.8rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.carousel-h3 h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  color: var(--white);
+}
+
+#data {
+  background-color: var(--background);
+  color: #594a4e;
+  text-align: center;
+}
+
+.data__content p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.data__content p.data__number {
+  font-weight: normal;
+  color: var(--black);
+  font-size: 4rem;
+  margin: 0;
+}
+
+.form-input {
+  background-color: var(--background);
+  color: var(--black);
+  outline: none;
+}
+
+.form-group i {
+  padding: 10px;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.form-group button {
+  color: var(--black);
+  background-color: var(--primary);
+}
+
+.chitiet-caption .chitiet-h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.chitiet-caption .chitiet-h5 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.chitiet-caption .btn-dangkychitiet {
+  background: none;
+  border: var(--primary) solid 3px;
+  border-radius: 30px;
+  color: var(--white);
+}
+
+#pills-tab .nav-link {
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#pills-tab .active {
+  background-color: var(--primary);
+  color: var(--black);
+}
+
+.tab-content {
+  border: solid 2px var(--black);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#pills-info p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#pills-info p span {
+  font-weight: 400;
+}
+
+.infoCourse-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.topic__title-container {
+  background: rgb(255, 139, 167);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 139, 167, 1) 0%,
+    rgba(255, 198, 199, 1) 46%,
+    rgba(255, 218, 218, 1) 100%
+  );
+  padding: 15px 0;
+  margin: 15px 0;
+  line-height: 5rem;
+  height: 5rem;
+}
+
+.topic__title {
+  font-size: 2.5rem;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+.khoaHoc__mota {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

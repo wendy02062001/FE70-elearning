@@ -6,8 +6,8 @@ import { quanLyKhoaHocReducer } from './reducers/quanLyKhoaHocReducer';
 const rootReducer = combineReducers({
   //Nơi chứa các state của ứng dụng
   quanLyNguoiDungReducer,
-  quanLyKhoaHocReducer,
-});
+  quanLyKhoaHocReducer
+})
 
 let middleware = applyMiddleware(reduxThunk);
 
