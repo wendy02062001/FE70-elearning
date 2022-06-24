@@ -41,7 +41,7 @@ function App() {
           component={ThemNguoiDung}
         />
         <AdminTemplate
-          path={'/admin/quanlynguoidung/sua-nguoi-dung/:id'}
+          path={"/admin/quanlynguoidung/sua-nguoi-dung/:id"}
           component={SuaNguoiDung}
         />
         <AdminTemplate
@@ -53,7 +53,7 @@ function App() {
           component={ThemKhoaHoc}
         />
         <AdminTemplate
-          path={'/admin/quanlykhoahoc/sua-khoa-hoc/:id'}
+          path={"/admin/quanlykhoahoc/sua-khoa-hoc/:id"}
           component={SuaKhoaHoc}
         />
         <HomeTemplate path={"/"} component={Home} />
