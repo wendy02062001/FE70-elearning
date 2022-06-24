@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { history } from "../../utils/setting";
 import { useDispatch, useSelector } from "react-redux";
-import { layDanhSachKhoaHocAction } from "../../redux/actions/KhoaHoc/QuanLyKhoaHocAction";
+import { layDanhSachKhoaHocAction } from "../../redux/actions/quanLyKhoaHocAction";
 
 export default function Home(props) {
   const { arrKhoaHoc } = useSelector(

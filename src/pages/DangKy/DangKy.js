@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { history } from "../../utils/setting";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { dangKyAction } from "../../redux/actions/NguoiDung/QuanLyNguoiDungAction";
+import { dangKyAction } from "../../redux/actions/quanLyNguoiDungActions";
 import { Axios } from "axios";
 
 export default function DangKy() {
@@ -34,7 +34,7 @@ export default function DangKy() {
                 {...register("hoTen", {
                   required: true,
                   pattern: {
-                    value: /^[A-Za-z]+$/i,
+                    value: /^[a-zA-Z].*[\s\.]*$/i,
                     message: "Họ tên sai định dạng",
                   },
                 })}

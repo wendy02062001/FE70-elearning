@@ -4,7 +4,7 @@ import { Table } from "antd";
 import "antd/dist/antd.css";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { layKhoaHocTimKiemAction } from "../../redux/actions/KhoaHoc/QuanLyKhoaHocAction";
+import { layKhoaHocTimKiemAction } from "../../redux/actions/quanLyKhoaHocAction";
 
 const columns = [
   {
@@ -19,7 +19,7 @@ const columns = [
             alt="Not found"
             width={250}
             height={200}
-            style={{objectFit:"cover"}}
+            style={{ objectFit: "cover" }}
             onError={({ currentTarget }) => {
               currentTarget.onerror = null; // prevents looping
               currentTarget.src = "./images/coursedefault.webp";

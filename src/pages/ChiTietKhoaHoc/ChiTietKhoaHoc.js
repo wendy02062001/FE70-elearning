@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { layThongTinKhoaHocAction } from "../../redux/actions/KhoaHoc/QuanLyKhoaHocAction";
+import { layThongTinKhoaHocAction } from "../../redux/actions/quanLyKhoaHocAction";
 
 export default function ChiTietKhoaHoc(props) {
   const search = useLocation().search;

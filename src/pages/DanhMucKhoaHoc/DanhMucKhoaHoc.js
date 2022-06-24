@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { layKhoaHocTheoDMAction } from "../../redux/actions/KhoaHoc/QuanLyKhoaHocAction";
+import { layKhoaHocTheoDMAction } from "../../redux/actions/quanLyKhoaHocAction";
 import { useHistory } from "react-router-dom";
 import { history } from "../../utils/setting";
 

@@ -3,7 +3,7 @@ import { history } from "../../utils/setting";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { DangNhapAction } from "../../redux/actions/NguoiDung/QuanLyNguoiDungAction";
+import { DangNhapAction } from "../../redux/actions/quanLyNguoiDungActions";
 
 export default function DangNhap() {
   const {
