@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "antd";
 import "antd/dist/antd.css";
+import { USER_LOGIN } from "../../utils/setting";
 const columns = [
   {
     key: "khoaHoc",
@@ -79,6 +80,12 @@ const data = [
   },
 ];
 
+let usLogin;
+
+if (localStorage.getItem(USER_LOGIN)) {
+  usLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
+}
+
 export default function ThongTinCaNhan() {
   return (
     <div>
@@ -140,29 +147,29 @@ export default function ThongTinCaNhan() {
             <div className="row">
               <div className="col-6 mx-auto">
                 <p className="text-center">
-                  Email:<span className="pl-3">nguyenvana@gmail.com</span>
+                  Email:<span className="pl-3">{usLogin.email}</span>
                 </p>
               </div>
               <div className="col-6 mx-auto">
                 <p className="text-center">
-                  Tài khoản:<span className="pl-3">nguyenvana</span>
+                  Tài khoản:<span className="pl-3">{usLogin.taiKhoan}</span>
                 </p>
               </div>
 
               <div className="col-6 mx-auto">
                 <p className="text-center">
-                  Họ tên:<span className="pl-3">Nguyễn Văn A</span>
+                  Họ tên:<span className="pl-3">{usLogin.hoTen}</span>
                 </p>
               </div>
               <div className="col-6 mx-auto">
                 <p className="text-center">
-                  Mật khẩu:<span className="pl-3">nguyenvana123</span>
+                  Mật khẩu:<span className="pl-3">{usLogin.password}</span>
                 </p>
               </div>
 
               <div className="col-6">
                 <p className="text-center">
-                  Số điện thoại:<span className="pl-3">0913 112 221</span>
+                  Số điện thoại:<span className="pl-3">{usLogin.soDT}</span>
                 </p>
               </div>
             </div>

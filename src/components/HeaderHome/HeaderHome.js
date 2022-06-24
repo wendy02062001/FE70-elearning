@@ -21,7 +21,12 @@ export default function HeaderHome() {
       console.log(usLogin);
       return (
         <div className="d-flex justify-content-center align-items-center">
-          <p className="mt-3 mr-3">
+          <p
+            className="mt-3 mr-3"
+            onClick={() => {
+              history.push("/thongTinCaNhan");
+            }}
+          >
             <i class="fas fa-user"></i>
             <span className="pl-2">Hi {usLogin.hoTen}!</span>
           </p>
